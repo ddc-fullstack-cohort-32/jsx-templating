@@ -1,4 +1,5 @@
-import React from "react";
+import React  from "react";
+import {useDispatch, useSelector} from 'react-redux'
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import Row from "react-bootstrap/Row";
@@ -9,8 +10,23 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container'
+import { fetchAllMisquotes } from '../../store/misquote'
+import { PostCard } from './PostCard'
 
 export const Posts = () => {
+	const dispatch = useDispatch()
+
+	const sideEffects = ()=> {
+		dispatch(fetchAllMisquotes())
+	}
+
+	React.useEffect(sideEffects, [])
+
+	const misquotes = useSelector(state => {
+		return state.misquotes ? state.misquotes : []
+	})
+
+
 	return (
 		<>
 			<main className="my-5">
@@ -26,7 +42,7 @@ export const Posts = () => {
 						<Col sm={4} >
 							<Card bg="shadow-light" className="border-0 rounded-6 col" >
 								<Card.Body>
-									<Card.Text>
+
 										<Form>
 											<Form.Group>
 												<InputGroup>
@@ -55,22 +71,13 @@ export const Posts = () => {
 												</InputGroup>
 											</Form.Group>
 										</Form>
-									</Card.Text>
 								</Card.Body>
 							</Card>
 						</Col>
 					</Row>
 					<Row>
 						<CardColumns className="p-4">
-						<Card className="card text-center">
-							<div className="card-body">
-								<Card.Title>Card title</Card.Title>
-								<Card.Text >
-									<p>This card has supporting text below as a natural lead-in to additional content</p>
-									<p><small className="text-muted">Last updated 3 mins ago</small></p>
-								</Card.Text>
-							</div>
-						</Card>
+							{misquotes.map( misquote => <PostCard misquote={misquote} />)}
 					</CardColumns>
 					</Row>
 
