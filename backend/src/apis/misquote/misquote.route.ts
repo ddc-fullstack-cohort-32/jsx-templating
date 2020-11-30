@@ -3,9 +3,9 @@ import {
 
   getAllMisquoteController,
   postMisquoteController,
-} from "../controllers/misquote.contoller";
-import {asyncValidatorController} from "../controllers/asyncValidator.controller";
-import { misquoteValidator} from "../validators/misquote.validator";
+} from "./misquote.contoller";
+import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
+import { misquoteValidator} from "./misquote.validator";
 
 
 

@@ -1,5 +1,5 @@
 import {Misquote} from "../interfaces/misquote";
-import {connect} from "../../src/database";
+import {connect} from "../database.utils";
 
 export async function insertMisquote(misquote: Misquote) {
   try {

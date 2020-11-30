@@ -1,8 +1,8 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
 // Routes
-import { indexRoutes } from './routes/index.route'
-import { MisquoteRoute } from './routes/misquote.route'
+import { indexRoutes } from './apis/index.route'
+import { MisquoteRoute } from './apis/misquote/misquote.route'
 
 // The following class creates the app and instantiates the server
 export class App {

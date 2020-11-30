@@ -1,5 +1,5 @@
 # https://github.com/BretFisher/node-docker-good-defaults/blob/69c923bc646bc96003e9ada55d1ec5ca943a1b19/Dockerfile
-FROM node:12
+FROM node:14
 
 ARG NODE_ENV=development
 

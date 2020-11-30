@@ -1,9 +1,11 @@
-const proxy = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 module.exports = function(app) {
-	app.use(proxy('/apis', {
+	app.use(createProxyMiddleware('/apis', {
 		logLevel: 'debug',
 		//ip address or domain goes here
-		target: "uss-hopper.site:8080",
+		target: "http://localhost:8080",
 		changeOrigin: true,
-		secure: true, }));
+		secure: true,
+	}));
 };

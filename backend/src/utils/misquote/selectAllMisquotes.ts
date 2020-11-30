@@ -1,4 +1,4 @@
-import {connect} from "../../src/database";
+import {connect} from "../database.utils";
 
 
 /**
