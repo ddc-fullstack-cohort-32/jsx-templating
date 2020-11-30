@@ -22,11 +22,14 @@ import {
 import {NavBar} from "./ui/shared/components/NavBar";
 import {faKey} from "@fortawesome/free-solid-svg-icons/faKey";
 import {Posts} from "./ui/Posts";
+import { Provider } from 'react-redux'
+import { store } from './store'
 
 library.add(faPencilAlt, faUserCircle, faSortDown, faEnvelope, faSignInAlt, faKey, faDog );
 
-const Routing = () => (
+const Routing = (store) => (
 	<>
+		<Provider store={store} >
 		<BrowserRouter>
 			<NavBar/>
 			<Switch>
@@ -36,6 +39,7 @@ const Routing = () => (
 				<Route component={FourOhFour} />
 			</Switch>
 		</BrowserRouter>
+		</Provider>
 	</>
 );
-ReactDOM.render(<Routing/>, document.querySelector('#root'));
+ReactDOM.render(Routing(store), document.querySelector('#root'));
