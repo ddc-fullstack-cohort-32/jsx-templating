@@ -21,7 +21,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {NavBar} from "./ui/shared/components/NavBar";
 import {faKey} from "@fortawesome/free-solid-svg-icons/faKey";
-import {Posts} from "./ui/Posts";
+import {Posts} from "./ui/posts/Posts";
 import { Provider } from 'react-redux'
 import { store } from './store'
 

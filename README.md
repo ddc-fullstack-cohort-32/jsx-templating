@@ -1,0 +1,2 @@
+# [Lecture Recording](https://cnm-edu.zoom.us/rec/share/VwVAkDOCUpXmGL5Sm4GwoPdtApeYYn9rh7Tjv-UYNDQszdOKVfgeeuRxj0wYZ1vm.ShJbvE9Y9Yu2Lnj_?startTime=1606749002000)
+This project has a working backend, and a setupProxy.js pointing to the backend. Dont be afraid to start up the application and click around.

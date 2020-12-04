@@ -1,14 +1,14 @@
 import {NextFunction, Request, Response} from "express";
 import {Status} from "../../utils/interfaces/status";
+import {selectAllMisquotes} from "../../utils/misquote/selectAllMisquotes";
 import {Misquote} from "../../utils/interfaces/misquote";
 import {insertMisquote} from "../../utils/misquote/insertMisquote";
-import {selectAllMisquotes} from "../../utils/misquote/selectAllMisquotes";
+
 
 
 export async function getAllMisquoteController(request: Request, response: Response, nextFunction: NextFunction) {
   try {
     const data = await selectAllMisquotes()
-    console.log(data)
     const status: Status = {status: 200, data, message: null}
     return response.json(status)
   } catch (error) {
