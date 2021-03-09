@@ -9,8 +9,30 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container'
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllMisquotes} from "../../store/misquote";
+import {PostCard} from "./PostCard";
 
 export const Posts = () => {
+
+	// subscribe using useSelector to the slice of store you care about x
+	// get access to dispatch from useDispatch() x
+	// using React.useEffect dispatch the action x
+	// map over the slice of state to create necessary components. x
+
+	const misquotes = useSelector((state) => state.misquotes ? state.misquotes : [])
+
+	console.log("misquotes from Redux slice", misquotes)
+
+	const dispatch = useDispatch()
+	 const initialEffects = () => {
+		dispatch(fetchAllMisquotes())
+	}
+
+	React.useEffect(initialEffects, [dispatch])
+
+
+
 	return (
 		<>
 			<main className="my-5">
@@ -58,19 +80,13 @@ export const Posts = () => {
 									</Card.Text>
 								</Card.Body>
 							</Card>
+
+
 						</Col>
 					</Row>
 					<Row>
 						<CardColumns className="p-4">
-						<Card className="card text-center">
-							<div className="card-body">
-								<Card.Title>Card title</Card.Title>
-								<Card.Text >
-									<p>This card has supporting text below as a natural lead-in to additional content</p>
-									<p><small className="text-muted">Last updated 3 mins ago</small></p>
-								</Card.Text>
-							</div>
-						</Card>
+							{misquotes.map(misquote => <PostCard key={misquote.misquoteId} misquote={misquote} />)}
 					</CardColumns>
 					</Row>
 
