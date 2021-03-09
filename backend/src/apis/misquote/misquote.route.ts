@@ -15,6 +15,5 @@ export const MisquoteRoute = Router()
 
 MisquoteRoute.route("/")
   .get(getAllMisquoteController)
-  //TODO add the isLoggedIn controller back to post after final misquote lecture
   .post( asyncValidatorController(checkSchema(misquoteValidator)), postMisquoteController)
 

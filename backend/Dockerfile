@@ -10,8 +10,6 @@ ARG PORT=4200
 ENV PORT $PORT
 EXPOSE $PORT 9229 9230
 
-RUN npm i npm@latest -g
-
 RUN mkdir /home/node/app
 
 
