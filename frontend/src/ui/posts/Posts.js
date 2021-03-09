@@ -12,6 +12,7 @@ import Container from 'react-bootstrap/Container'
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllMisquotes} from "../../store/misquote";
 import {PostCard} from "./PostCard";
+import {PostForm} from "./PostForm";
 
 export const Posts = () => {
 
@@ -48,36 +49,7 @@ export const Posts = () => {
 						<Col sm={4} >
 							<Card bg="shadow-light" className="border-0 rounded-6 col" >
 								<Card.Body>
-									<Card.Text>
-										<Form>
-											<Form.Group>
-												<InputGroup>
-													<FormControl placeholder="Attribution"/>
-												</InputGroup>
-											</Form.Group>
-
-											<Form.Group>
-												<InputGroup>
-													<FormControl placeholder="Submitter"/>
-												</InputGroup>
-											</Form.Group>
-
-											<Form.Group>
-												<InputGroup>
-													<InputGroup.Prepend>
-														<InputGroup.Text>
-															<FontAwesomeIcon icon="dog"/>
-														</InputGroup.Text>
-													</InputGroup.Prepend>
-													<FormControl as="textarea" placeholder="Meow Meow Goes Here"/>
-													<InputGroup.Append>
-														<Button variant="primary" type="submit"> Submit <FontAwesomeIcon
-															icon="envelope"/></Button>
-													</InputGroup.Append>
-												</InputGroup>
-											</Form.Group>
-										</Form>
-									</Card.Text>
+										<PostForm />
 								</Card.Body>
 							</Card>
 
